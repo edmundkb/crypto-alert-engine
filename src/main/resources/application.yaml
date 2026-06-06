@@ -6,6 +6,11 @@ spring:
     port: 5672
     username: guest
     password: guest
+  datasource:
+    url: jdbc:postgresql://postgres-service:5432/cryptodb
+    username: crypto_user
+    password: crypto_pass
+    driver-class-name: org.postgresql.Driver
 
 server:
   port: 8081
@@ -22,3 +27,11 @@ readinessProbe:
     port: 8081
   initialDelaySeconds: 30
   periodSeconds: 10
+
+jpa:
+  hibernate:
+    ddl-auto: update
+  show-sql: true
+  properties:
+    hibernate:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
