@@ -11,6 +11,17 @@ spring:
     username: crypto_user
     password: crypto_pass
     driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10   # Keep below 10 for local
+      minimum-idle: 5
+      idle-timeout: 30000
+      connection-timeout: 20000
+  sql:
+    init:
+      mode: always
+  threads:
+    virtual:
+      enabled: true
 
 server:
   port: 8081
